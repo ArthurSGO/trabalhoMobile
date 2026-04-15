@@ -1,189 +1,85 @@
-import { useEffect, useState } from "react";
+import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { getAuthenticated } from "../auth";
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useMemo, useState } from "react";
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Ionicons } from '@expo/vector-icons';
-import { useCart } from "../cartContext";
-import { useTicket } from "../ticketContext"
+import { DADOS_EVENTOS } from "../../mocks/event";
+import { Event } from "../../types/event";
 
+export default function CartScreen() {
+  const router = useRouter();
+  const [itens, setItens] = useState<Event[]>([DADOS_EVENTOS[0], DADOS_EVENTOS[1]]);
+  const quantidade = itens.length;
+  const totalFixo = useMemo(() => (quantidade === 0 ? "R$ 0,00" : "R$ 210,00"), [quantidade]);
 
-export default function CartScreen(){
-    const router = useRouter();
-    const { carrinho, remover, total, limparCarrinho } = useCart();
-    const { adicionarTickets } = useTicket();
-    const carrinhoVazio = carrinho.length === 0;
-    const [toast, setToast] = useState({visivel: false, mensagem: "",});
+  const removerItem = (id: string) => {
+    setItens((anterior) => anterior.filter((item) => item.id !== id));
+  };
 
-    useEffect(() => {
-        if (!getAuthenticated()) {
-            router.replace('/login');
-        }
-    }, []);
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.titulo}>Meu Carrinho ({quantidade} itens)</Text>
 
-    const handlePress = () => {
-        if (carrinhoVazio) return;
-
-        adicionarTickets(carrinho);
-        limparCarrinho();
-
-        mostrarToast("Compra realizada com sucesso!");
-
-        setTimeout(() => {
-            router.push("/ticket");
-        }, 1500);
-    };
-
-    const mostrarToast = (texto: string) => {
-        setToast({ visivel: true, mensagem: texto });
-        
-        setTimeout(() => {
-            setToast({ visivel: false, mensagem: "" });
-            router.push("/ticket")
-        }, 1500);
-    };
-
-    return(
-        <SafeAreaView>
-            <View style={styles.header}>
-                <TouchableOpacity onPress={() => router.back()} style={styles.botaoVoltar}>
-                    <Ionicons name="arrow-back" size={24} color="#fff" />
-                </TouchableOpacity>
-                <Text style={styles.tituloHeader}> Meu Carrinho ({carrinho.length})</Text>
+      <FlatList
+        data={itens}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={styles.lista}
+        ListEmptyComponent={<Text style={styles.vazio}>Seu carrinho está vazio.</Text>}
+        renderItem={({ item }) => (
+          <View style={styles.card}>
+            <Image source={{ uri: item.imagem }} style={styles.imagem} />
+            <View style={styles.info}>
+              <Text style={styles.nome}>{item.titulo}</Text>
+              <Text style={styles.texto}>{item.data}</Text>
+              <Text style={styles.texto}>{item.local}</Text>
+              <Text style={styles.preco}>{item.preco}</Text>
+              <TouchableOpacity style={styles.lixeira} onPress={() => removerItem(item.id)}>
+                <Ionicons name="trash" size={20} color="#b23a48" />
+              </TouchableOpacity>
             </View>
-            {toast.visivel && (
-                <View style={styles.toast}>
-                    <Text style={styles.toastTexto}>{toast.mensagem}</Text>
-                </View>
-            )}
-            <ScrollView contentContainerStyle={{paddingBottom: 120}}>
-                {carrinho.map((item, index) => (
-                    <View key={index} style={styles.card}>
-                    <Image source={{ uri: item.imagem }} style={styles.imagem} />
+          </View>
+        )}
+      />
 
-                    <View style={styles.info}>
-                        <Text style={styles.titulo}>{item.titulo}</Text>
-                        <Text>{item.data}</Text>
-                        <Text>{item.local}</Text>
-                        <Text style={styles.preco}>{item.preco}</Text>
-                        <TouchableOpacity onPress={() => remover(item.titulo)}>
-                            <Ionicons name="trash" size={24} color="#d13838" />
-                        </TouchableOpacity>
-                    </View>
-                    </View>
-                ))}
-                <View style={styles.totalContainer}>
-                    <Text style={styles.totalTexto}>Total:</Text>
-                    <Text style={styles.totalValor}> R$ {total.toFixed(2)}</Text>
-                </View>
-                <TouchableOpacity style={[styles.botaoComprar, { backgroundColor: carrinhoVazio ? '#666' : '#0b0' }]}onPress={handlePress}>
-                    <Text style={styles.textoBotao}>
-                        {carrinhoVazio ? 'Sem Itens' : 'Finalizar Compra'}
-                    </Text>
-                </TouchableOpacity>
-            </ScrollView>
-        </SafeAreaView>
-    );
+      <View style={styles.rodape}>
+        <View>
+          <Text style={styles.totalLabel}>Total</Text>
+          <Text style={styles.totalValor}>{totalFixo}</Text>
+        </View>
+        <TouchableOpacity style={styles.botao} onPress={() => router.push("/(tabs)/ticket")}>
+          <Text style={styles.botaoTexto}>Finalizar Compra</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#f4f6f8",
-    },
-    botaoVoltar: {
-        backgroundColor: "#666",
-        borderRadius: 14,
-        paddingVertical: 14,
-        alignItems: "center",
-        justifyContent: "center",
-        marginRight: 12,
-    },
-    header: {
-        flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: "#666",
-        paddingHorizontal: 16,
-        paddingVertical: 14,
-    },
-    tituloHeader: {
-        color: "#fff",
-        fontSize: 24,
-        fontWeight: "bold",
-        flex: 1,
-    },
-    card: {
-        backgroundColor: "#fff",
-        margin: 16,
-        borderRadius: 12,
-        overflow: "hidden",
-        elevation: 3,
-    },
-
-    imagem: {
-        width: "100%",
-        height: 150,
-    },
-
-    info: {
-        padding: 12,
-    },
-
-    titulo: {
-        fontSize: 18,
-        fontWeight: "bold",
-    },
-
-    preco: {
-        color: "#0b0",
-        fontWeight: "bold",
-        marginTop: 4,
-    },
-    totalContainer: {
-        backgroundColor: "#fff",
-        padding: 20,
-        margin: 16,
-        borderRadius: 12,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        elevation: 3,
-    },
-
-    totalTexto: {
-        fontSize: 18,
-        fontWeight: "bold",
-    },
-
-    totalValor: {
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "#0b0",
-    },
-    botaoComprar: {
-        borderRadius: 14,
-        paddingVertical: 14,
-        alignItems: "center",
-        justifyContent: "center",
-        marginBottom: 20,
-    },
-    textoBotao: {
-        color: "#ffffff",
-        fontSize: 16,
-        fontWeight: "bold",
-    },
-    toast: {
-        position: 'absolute',
-        top: 50,
-        alignSelf: 'center',
-        backgroundColor: 'rgba(0,210,0,0.8)',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        borderRadius: 20,
-        zIndex: 999
-    },
-
-    toastTexto: {
-        color: '#fff'
-    },
-})    
+  container: { flex: 1, backgroundColor: "#eef1ff" },
+  titulo: { fontSize: 24, fontWeight: "700", color: "#1f2b5c", paddingHorizontal: 16, paddingTop: 8 },
+  lista: { padding: 16, paddingBottom: 140, gap: 12 },
+  card: { backgroundColor: "#fff", borderRadius: 14, overflow: "hidden" },
+  imagem: { width: "100%", height: 130 },
+  info: { padding: 12 },
+  nome: { fontSize: 17, fontWeight: "700", color: "#1f2b5c" },
+  texto: { color: "#4e5676", marginTop: 3 },
+  preco: { fontSize: 16, fontWeight: "700", color: "#3f51b5", marginTop: 6 },
+  lixeira: { marginTop: 8, width: 30, height: 30, alignItems: "center", justifyContent: "center" },
+  vazio: { textAlign: "center", color: "#4e5676", marginTop: 30, fontSize: 16 },
+  rodape: {
+    position: "absolute",
+    left: 16,
+    right: 16,
+    bottom: 20,
+    backgroundColor: "#fff",
+    borderRadius: 14,
+    padding: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  totalLabel: { color: "#4e5676", fontSize: 14 },
+  totalValor: { color: "#1f2b5c", fontSize: 20, fontWeight: "700" },
+  botao: { backgroundColor: "#3f51b5", borderRadius: 10, paddingVertical: 10, paddingHorizontal: 18 },
+  botaoTexto: { color: "#fff", fontWeight: "700" },
+});

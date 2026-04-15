@@ -1,78 +1,59 @@
-import { useTicket } from "../ticketContext";
-import { View, Text, Image, ScrollView, StyleSheet } from "react-native";
+import { FlatList, Image, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { DADOS_EVENTOS } from "../../mocks/event";
+
+const BILHETES = [
+  {
+    id: "b1",
+    titulo: DADOS_EVENTOS[0].titulo,
+    data: DADOS_EVENTOS[0].data,
+    local: DADOS_EVENTOS[0].local,
+    imagem: DADOS_EVENTOS[0].imagem,
+    codigo: "TKT-2026-A1B2",
+  },
+  {
+    id: "b2",
+    titulo: DADOS_EVENTOS[2].titulo,
+    data: DADOS_EVENTOS[2].data,
+    local: DADOS_EVENTOS[2].local,
+    imagem: DADOS_EVENTOS[2].imagem,
+    codigo: "TKT-2026-C3D4",
+  },
+];
 
 export default function TicketScreen() {
-  const { tickets } = useTicket();
-
   return (
     <SafeAreaView style={styles.container}>
-      
-      <Text style={styles.titulo}>
-        Meus Bilhetes ({tickets.length})
-      </Text>
+      <Text style={styles.titulo}>Meus Bilhetes ({BILHETES.length} bilhetes)</Text>
 
-      <ScrollView>
-        {tickets.map((item, index) => (
-          <View key={index} style={styles.card}>
-            
+      <FlatList
+        data={BILHETES}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={styles.lista}
+        renderItem={({ item }) => (
+          <View style={styles.card}>
             <Image source={{ uri: item.imagem }} style={styles.imagem} />
-
             <View style={styles.info}>
               <Text style={styles.nome}>{item.titulo}</Text>
-              <Text>{item.data}</Text>
-              <Text>{item.local}</Text>
-
-              <Text style={styles.codigo}>
-                {item.codigo}
-              </Text>
+              <Text style={styles.texto}>{item.data}</Text>
+              <Text style={styles.texto}>{item.local}</Text>
+              <Text style={styles.codigo}>{item.codigo}</Text>
             </View>
-
           </View>
-        ))}
-      </ScrollView>
-
+        )}
+      />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-        container: {
-        flex: 1,
-        backgroundColor: "#f4f6f8",
-    },
-
-    titulo: {
-        fontSize: 24,
-        fontWeight: "bold",
-        margin: 16,
-    },
-
-    card: {
-        backgroundColor: "#fff",
-        margin: 16,
-        borderRadius: 12,
-        overflow: "hidden",
-        elevation: 3,
-    },
-
-    imagem: {
-        width: "100%",
-        height: 150,
-    },
-
-    info: {
-        padding: 12,
-    },
-
-    nome: {
-        fontSize: 18,
-        fontWeight: "bold",
-    },
-
-    codigo: {
-        marginTop: 10,
-        fontWeight: "bold",
-        color: "#2f6fed",
-    },
+  container: { flex: 1, backgroundColor: "#eef1ff" },
+  titulo: { fontSize: 24, fontWeight: "700", color: "#1f2b5c", paddingHorizontal: 16, paddingTop: 8 },
+  lista: { padding: 16, paddingBottom: 120, gap: 12 },
+  card: { backgroundColor: "#fff", borderRadius: 14, overflow: "hidden" },
+  imagem: { width: "100%", height: 130 },
+  info: { padding: 12 },
+  nome: { fontSize: 17, fontWeight: "700", color: "#1f2b5c" },
+  texto: { color: "#4e5676", marginTop: 3 },
+  codigo: { marginTop: 10, color: "#3f51b5", fontWeight: "700" },
 });
