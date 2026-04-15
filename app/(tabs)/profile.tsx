@@ -29,11 +29,49 @@ export default function ProfileScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#eef1ff", justifyContent: "center", padding: 20 },
-  card: { backgroundColor: "#fff", borderRadius: 16, padding: 24, alignItems: "center" },
-  imagem: { width: 110, height: 110, borderRadius: 55, marginBottom: 14 },
-  nome: { fontSize: 24, fontWeight: "700", color: "#1f2b5c" },
-  bio: { fontSize: 15, color: "#4e5676", marginTop: 6 },
-  botao: { marginTop: 18, backgroundColor: "#3f51b5", paddingVertical: 10, paddingHorizontal: 26, borderRadius: 12 },
-  botaoTexto: { color: "#fff", fontWeight: "700" },
+  container: {
+    flex: 1,
+    backgroundColor: "#eef1ff",
+    justifyContent: "center",
+    padding: 20,
+  },
+
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 16,
+    padding: 24,
+    alignItems: "center",
+  },
+
+  imagem: {
+    width: 110,
+    height: 110,
+    borderRadius: 55,
+    marginBottom: 14,
+  },
+
+  nome: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "#1f2b5c",
+  },
+
+  bio: {
+    fontSize: 15,
+    color: "#4e5676",
+    marginTop: 6,
+  },
+
+  botao: {
+    marginTop: 18,
+    backgroundColor: "#3f51b5",
+    paddingVertical: 10,
+    paddingHorizontal: 26,
+    borderRadius: 12,
+  },
+
+  botaoTexto: {
+    color: "#fff",
+    fontWeight: "700",
+  },
 });

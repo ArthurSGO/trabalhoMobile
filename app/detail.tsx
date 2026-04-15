@@ -48,7 +48,11 @@ export default function DetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#eef1ff" },
+  container: { 
+    flex: 1, 
+    backgroundColor: "#eef1ff" 
+  },
+
   header: {
     flexDirection: "row",
     alignItems: "center",
@@ -57,17 +61,88 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 12,
   },
-  botaoVoltar: { width: 36, height: 36, borderRadius: 18, alignItems: "center", justifyContent: "center" },
-  tituloHeader: { color: "#fff", fontSize: 18, fontWeight: "700", flex: 1 },
-  conteudo: { padding: 16, paddingBottom: 42 },
-  imagem: { width: "100%", height: 220, borderRadius: 14, marginBottom: 14 },
-  titulo: { fontSize: 24, fontWeight: "700", color: "#1f2b5c", marginBottom: 12 },
-  card: { backgroundColor: "#fff", borderRadius: 14, padding: 14, marginBottom: 14 },
-  rotulo: { fontSize: 13, fontWeight: "700", color: "#3f51b5", textTransform: "uppercase" },
-  valor: { fontSize: 16, color: "#37405f", marginTop: 4 },
-  espaco: { marginTop: 12 },
-  subtitulo: { fontSize: 18, fontWeight: "700", color: "#1f2b5c", marginBottom: 8 },
-  descricao: { fontSize: 15, color: "#505a7a", lineHeight: 22 },
-  botao: { backgroundColor: "#3f51b5", borderRadius: 12, alignItems: "center", paddingVertical: 14 },
-  botaoTexto: { color: "#fff", fontSize: 16, fontWeight: "700" },
+
+  botaoVoltar: { 
+    width: 36, 
+    height: 36, 
+    borderRadius: 18, 
+    alignItems: "center", 
+    justifyContent: "center" 
+  },
+
+  tituloHeader: { 
+    color: "#fff", 
+    fontSize: 18, 
+    fontWeight: "700", 
+    flex: 1 
+  },
+
+  conteudo: { 
+    padding: 16, 
+    paddingBottom: 42 
+  },
+
+  imagem: { 
+    width: "100%", 
+    height: 220, 
+    borderRadius: 14, 
+    marginBottom: 14 
+  },
+  
+  titulo: { 
+    fontSize: 24, 
+    fontWeight: "700", 
+    color: "#1f2b5c", 
+    marginBottom: 12 
+  },
+
+  card: { 
+    backgroundColor: "#fff", 
+    borderRadius: 14, 
+    padding: 14, 
+    marginBottom: 14 
+  },
+
+  rotulo: { 
+    fontSize: 13, 
+    fontWeight: "700", 
+    color: "#3f51b5", 
+    textTransform: "uppercase" 
+  },
+
+  valor: { 
+    fontSize: 16, 
+    color: "#37405f", 
+    marginTop: 4 
+  },
+
+  espaco: { 
+    marginTop: 12 
+  },
+
+  subtitulo: { 
+    fontSize: 18, 
+    fontWeight: "700", 
+    color: "#1f2b5c", 
+    marginBottom: 8 
+  },
+
+  descricao: { 
+    fontSize: 15, 
+    color: "#505a7a", 
+    lineHeight: 22 
+  },
+
+  botao: { 
+    backgroundColor: "#3f51b5", 
+    borderRadius: 12, 
+    alignItems: "center", 
+    paddingVertical: 14 
+  },
+
+  botaoTexto: { 
+    color: "#fff", 
+    fontSize: 16, 
+    fontWeight: "700" 
+  },
 });

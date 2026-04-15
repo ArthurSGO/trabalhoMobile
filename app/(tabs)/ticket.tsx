@@ -47,13 +47,54 @@ export default function TicketScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#eef1ff" },
-  titulo: { fontSize: 24, fontWeight: "700", color: "#1f2b5c", paddingHorizontal: 16, paddingTop: 8 },
-  lista: { padding: 16, paddingBottom: 120, gap: 12 },
-  card: { backgroundColor: "#fff", borderRadius: 14, overflow: "hidden" },
-  imagem: { width: "100%", height: 130 },
-  info: { padding: 12 },
-  nome: { fontSize: 17, fontWeight: "700", color: "#1f2b5c" },
-  texto: { color: "#4e5676", marginTop: 3 },
-  codigo: { marginTop: 10, color: "#3f51b5", fontWeight: "700" },
+  container: {
+    flex: 1,
+    backgroundColor: "#eef1ff",
+  },
+
+  titulo: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "#1f2b5c",
+    paddingHorizontal: 16,
+    paddingTop: 8,
+  },
+
+  lista: {
+    padding: 16,
+    paddingBottom: 120,
+    gap: 12,
+  },
+
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 14,
+    overflow: "hidden",
+  },
+
+  imagem: {
+    width: "100%",
+    height: 130,
+  },
+
+  info: {
+    padding: 12,
+  },
+
+  nome: {
+    fontSize: 17,
+    fontWeight: "700",
+    color: "#1f2b5c",
+  },
+
+  texto: {
+    color: "#4e5676",
+    marginTop: 3,
+  },
+
+  codigo: {
+    marginTop: 10,
+    color: "#3f51b5",
+    fontWeight: "700",
+  },
 });

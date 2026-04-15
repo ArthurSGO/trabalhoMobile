@@ -47,9 +47,27 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#eef1ff", justifyContent: "center", padding: 20 },
-  box: { backgroundColor: "#fff", borderRadius: 16, padding: 22, gap: 10 },
-  titulo: { fontSize: 23, fontWeight: "700", color: "#1f2b5c", marginBottom: 6 },
+  container: { 
+    flex: 1, 
+    backgroundColor: "#eef1ff", 
+    justifyContent: "center", 
+    padding: 20 
+  },
+
+  box: { 
+    backgroundColor: "#fff", 
+    borderRadius: 16, 
+    padding: 22, 
+    gap: 10 
+  },
+
+  titulo: { 
+    fontSize: 23, 
+    fontWeight: "700", 
+    color: "#1f2b5c", 
+    marginBottom: 6 
+  },
+
   input: {
     height: 46,
     borderWidth: 1,
@@ -58,6 +76,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     color: "#1f2b5c",
   },
-  botao: { marginTop: 6, backgroundColor: "#3f51b5", borderRadius: 10, paddingVertical: 12, alignItems: "center" },
-  botaoTexto: { color: "#fff", fontWeight: "700", fontSize: 16 },
+
+  botao: { 
+    marginTop: 6, 
+    backgroundColor: "#3f51b5", 
+    borderRadius: 10, 
+    paddingVertical: 12, 
+    alignItems: "center" 
+  },
+  
+  botaoTexto: { 
+    color: "#fff", 
+    fontWeight: "700", 
+    fontSize: 16 
+  },
 });

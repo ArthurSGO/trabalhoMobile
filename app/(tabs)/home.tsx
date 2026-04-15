@@ -39,9 +39,24 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#eef1ff" },
-  header: { paddingHorizontal: 16, paddingTop: 8, paddingBottom: 14 },
-  titulo: { fontSize: 28, fontWeight: "700", color: "#1f2b5c", marginBottom: 12 },
+  container: {
+    flex: 1,
+    backgroundColor: "#eef1ff",
+  },
+
+  header: {
+    paddingHorizontal: 16,
+    paddingTop: 8,
+    paddingBottom: 14,
+  },
+
+  titulo: {
+    fontSize: 28,
+    fontWeight: "700",
+    color: "#1f2b5c",
+    marginBottom: 12,
+  },
+
   input: {
     backgroundColor: "#ffffff",
     borderRadius: 12,
@@ -49,11 +64,46 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     color: "#1f2b5c",
   },
-  lista: { padding: 16, paddingBottom: 120, gap: 12 },
-  card: { backgroundColor: "#fff", borderRadius: 14, overflow: "hidden" },
-  imagem: { width: "100%", height: 150, backgroundColor: "#d8dcf2" },
-  cardConteudo: { padding: 12 },
-  nome: { fontSize: 18, fontWeight: "700", color: "#1f2b5c", marginBottom: 6 },
-  info: { fontSize: 14, color: "#545d7a", marginBottom: 2 },
-  preco: { fontSize: 16, fontWeight: "700", color: "#3f51b5", marginTop: 8 },
+
+  lista: {
+    padding: 16,
+    paddingBottom: 120,
+    gap: 12,
+  },
+
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 14,
+    overflow: "hidden",
+  },
+
+  imagem: {
+    width: "100%",
+    height: 150,
+    backgroundColor: "#d8dcf2",
+  },
+
+  cardConteudo: {
+    padding: 12,
+  },
+
+  nome: {
+    fontSize: 18,
+    fontWeight: "700",
+    color: "#1f2b5c",
+    marginBottom: 6,
+  },
+
+  info: {
+    fontSize: 14,
+    color: "#545d7a",
+    marginBottom: 2,
+  },
+
+  preco: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#3f51b5",
+    marginTop: 8,
+  },
 });
