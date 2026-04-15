@@ -49,13 +49,13 @@ export default function TicketScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eef1ff",
+    backgroundColor: "#f3f7f6",
   },
 
   titulo: {
     fontSize: 24,
     fontWeight: "700",
-    color: "#1f2b5c",
+    color: "#1f2a37",
     paddingHorizontal: 16,
     paddingTop: 8,
   },
@@ -84,17 +84,17 @@ const styles = StyleSheet.create({
   nome: {
     fontSize: 17,
     fontWeight: "700",
-    color: "#1f2b5c",
+    color: "#1f2a37",
   },
 
   texto: {
-    color: "#4e5676",
+    color: "#5c6b73",
     marginTop: 3,
   },
 
   codigo: {
     marginTop: 10,
-    color: "#3f51b5",
+    color: "#2e7d6e",
     fontWeight: "700",
   },
 });

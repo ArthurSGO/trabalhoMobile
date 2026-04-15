@@ -1,30 +1,24 @@
-import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { useMemo, useState } from "react";
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { DADOS_EVENTOS } from "../../mocks/event";
 import { Event } from "../../types/event";
 
+const ITENS_CARRINHO: Event[] = [DADOS_EVENTOS[0], DADOS_EVENTOS[1]];
+
 export default function CartScreen() {
   const router = useRouter();
-  const [itens, setItens] = useState<Event[]>([DADOS_EVENTOS[0], DADOS_EVENTOS[1]]);
-  const quantidade = itens.length;
-  const totalFixo = useMemo(() => (quantidade === 0 ? "R$ 0,00" : "R$ 210,00"), [quantidade]);
-
-  const removerItem = (id: string) => {
-    setItens((anterior) => anterior.filter((item) => item.id !== id));
-  };
+  const quantidade = ITENS_CARRINHO.length;
+  const totalFixo = "R$ 210,00";
 
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.titulo}>Meu Carrinho ({quantidade} itens)</Text>
 
       <FlatList
-        data={itens}
+        data={ITENS_CARRINHO}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.lista}
-        ListEmptyComponent={<Text style={styles.vazio}>Seu carrinho está vazio.</Text>}
         renderItem={({ item }) => (
           <View style={styles.card}>
             <Image source={{ uri: item.imagem }} style={styles.imagem} />
@@ -33,9 +27,6 @@ export default function CartScreen() {
               <Text style={styles.texto}>{item.data}</Text>
               <Text style={styles.texto}>{item.local}</Text>
               <Text style={styles.preco}>{item.preco}</Text>
-              <TouchableOpacity style={styles.lixeira} onPress={() => removerItem(item.id)}>
-                <Ionicons name="trash" size={20} color="#b23a48" />
-              </TouchableOpacity>
             </View>
           </View>
         )}
@@ -57,13 +48,13 @@ export default function CartScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eef1ff",
+    backgroundColor: "#f3f7f6",
   },
 
   titulo: {
     fontSize: 24,
     fontWeight: "700",
-    color: "#1f2b5c",
+    color: "#1f2a37",
     paddingHorizontal: 16,
     paddingTop: 8,
   },
@@ -92,34 +83,19 @@ const styles = StyleSheet.create({
   nome: {
     fontSize: 17,
     fontWeight: "700",
-    color: "#1f2b5c",
+    color: "#1f2a37",
   },
 
   texto: {
-    color: "#4e5676",
+    color: "#5c6b73",
     marginTop: 3,
   },
 
   preco: {
     fontSize: 16,
     fontWeight: "700",
-    color: "#3f51b5",
+    color: "#2e7d6e",
     marginTop: 6,
-  },
-
-  lixeira: {
-    marginTop: 8,
-    width: 30,
-    height: 30,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  vazio: {
-    textAlign: "center",
-    color: "#4e5676",
-    marginTop: 30,
-    fontSize: 16,
   },
 
   rodape: {
@@ -136,18 +112,18 @@ const styles = StyleSheet.create({
   },
 
   totalLabel: {
-    color: "#4e5676",
+    color: "#5c6b73",
     fontSize: 14,
   },
 
   totalValor: {
-    color: "#1f2b5c",
+    color: "#1f2a37",
     fontSize: 20,
     fontWeight: "700",
   },
 
   botao: {
-    backgroundColor: "#3f51b5",
+    backgroundColor: "#e57a44",
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 18,

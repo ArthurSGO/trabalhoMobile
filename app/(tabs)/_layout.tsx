@@ -1,8 +1,8 @@
 import { Tabs } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 
-const corPrincipal = "#3f51b5";
-const corInativa = "#9aa1b5";
+const corPrincipal = "#2e7d6e";
+const corInativa = "#8aa39d";
 
 export default function TabLayout() {
   return (
@@ -11,7 +11,13 @@ export default function TabLayout() {
         headerShown: false,
         tabBarActiveTintColor: corPrincipal,
         tabBarInactiveTintColor: corInativa,
-        tabBarStyle: { height: 64, paddingBottom: 8, paddingTop: 6 },
+        tabBarStyle: {
+          height: 64,
+          paddingBottom: 8,
+          paddingTop: 6,
+          backgroundColor: "#ffffff",
+          borderTopColor: "#d7e2df",
+        },
       }}
     >
       <Tabs.Screen

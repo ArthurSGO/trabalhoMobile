@@ -1,28 +1,16 @@
-import { useRouter } from "expo-router";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { setAuthenticated } from "../auth";
 
 export default function ProfileScreen() {
-  const router = useRouter();
-
-  const sair = () => {
-    setAuthenticated(false);
-    router.replace("/login");
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.card}>
-        <Image
-          source={{ uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=400&q=60" }}
-          style={styles.imagem}
-        />
+        <View style={styles.avatarContainer}>
+          <Ionicons name="person-circle-outline" size={110} color="#8aa39d" />
+        </View>
         <Text style={styles.nome}>Arthur</Text>
         <Text style={styles.bio}>Aluno do projeto Easy Ticket</Text>
-        <TouchableOpacity style={styles.botao} onPress={sair}>
-          <Text style={styles.botaoTexto}>Sair</Text>
-        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -31,7 +19,7 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eef1ff",
+    backgroundColor: "#f3f7f6",
     justifyContent: "center",
     padding: 20,
   },
@@ -43,35 +31,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  imagem: {
+  avatarContainer: {
     width: 110,
     height: 110,
     borderRadius: 55,
     marginBottom: 14,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#edf3f1",
   },
 
   nome: {
     fontSize: 24,
     fontWeight: "700",
-    color: "#1f2b5c",
+    color: "#1f2a37",
   },
 
   bio: {
     fontSize: 15,
-    color: "#4e5676",
+    color: "#5c6b73",
     marginTop: 6,
-  },
-
-  botao: {
-    marginTop: 18,
-    backgroundColor: "#3f51b5",
-    paddingVertical: 10,
-    paddingHorizontal: 26,
-    borderRadius: 12,
-  },
-
-  botaoTexto: {
-    color: "#fff",
-    fontWeight: "700",
   },
 });
