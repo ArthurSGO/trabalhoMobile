@@ -1,0 +1,2 @@
+local.properties
+sdk.dir = C:\\Users\\arthu\\AppData\\Local\\Android\\Sdk
