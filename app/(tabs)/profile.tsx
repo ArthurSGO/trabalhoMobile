@@ -9,8 +9,8 @@ export default function ProfileScreen() {
         <View style={styles.avatarContainer}>
           <Ionicons name="person-circle-outline" size={110} color="#8aa39d" />
         </View>
-        <Text style={styles.nome}>Arthur</Text>
-        <Text style={styles.bio}>Aluno do projeto Easy Ticket</Text>
+        <Text style={styles.nome}>Arthur Soares Gardim</Text>
+        <Text style={styles.bio}>RA: 14526</Text>
       </View>
     </SafeAreaView>
   );
