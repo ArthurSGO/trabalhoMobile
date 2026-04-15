@@ -48,101 +48,101 @@ export default function DetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    backgroundColor: "#eef1ff" 
+  container: {
+    flex: 1,
+    backgroundColor: "#f3f7f6",
   },
 
   header: {
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    backgroundColor: "#3f51b5",
+    backgroundColor: "#2e7d6e",
     paddingHorizontal: 14,
     paddingVertical: 12,
   },
 
-  botaoVoltar: { 
-    width: 36, 
-    height: 36, 
-    borderRadius: 18, 
-    alignItems: "center", 
-    justifyContent: "center" 
+  botaoVoltar: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: "center",
+    justifyContent: "center",
   },
 
-  tituloHeader: { 
-    color: "#fff", 
-    fontSize: 18, 
-    fontWeight: "700", 
-    flex: 1 
+  tituloHeader: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "700",
+    flex: 1,
   },
 
-  conteudo: { 
-    padding: 16, 
-    paddingBottom: 42 
+  conteudo: {
+    padding: 16,
+    paddingBottom: 42,
   },
 
-  imagem: { 
-    width: "100%", 
-    height: 220, 
-    borderRadius: 14, 
-    marginBottom: 14 
-  },
-  
-  titulo: { 
-    fontSize: 24, 
-    fontWeight: "700", 
-    color: "#1f2b5c", 
-    marginBottom: 12 
+  imagem: {
+    width: "100%",
+    height: 220,
+    borderRadius: 14,
+    marginBottom: 14,
   },
 
-  card: { 
-    backgroundColor: "#fff", 
-    borderRadius: 14, 
-    padding: 14, 
-    marginBottom: 14 
+  titulo: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "#1f2a37",
+    marginBottom: 12,
   },
 
-  rotulo: { 
-    fontSize: 13, 
-    fontWeight: "700", 
-    color: "#3f51b5", 
-    textTransform: "uppercase" 
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 14,
   },
 
-  valor: { 
-    fontSize: 16, 
-    color: "#37405f", 
-    marginTop: 4 
+  rotulo: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: "#2e7d6e",
+    textTransform: "uppercase",
   },
 
-  espaco: { 
-    marginTop: 12 
+  valor: {
+    fontSize: 16,
+    color: "#44525c",
+    marginTop: 4,
   },
 
-  subtitulo: { 
-    fontSize: 18, 
-    fontWeight: "700", 
-    color: "#1f2b5c", 
-    marginBottom: 8 
+  espaco: {
+    marginTop: 12,
   },
 
-  descricao: { 
-    fontSize: 15, 
-    color: "#505a7a", 
-    lineHeight: 22 
+  subtitulo: {
+    fontSize: 18,
+    fontWeight: "700",
+    color: "#1f2a37",
+    marginBottom: 8,
   },
 
-  botao: { 
-    backgroundColor: "#3f51b5", 
-    borderRadius: 12, 
-    alignItems: "center", 
-    paddingVertical: 14 
+  descricao: {
+    fontSize: 15,
+    color: "#5c6b73",
+    lineHeight: 22,
   },
 
-  botaoTexto: { 
-    color: "#fff", 
-    fontSize: 16, 
-    fontWeight: "700" 
+  botao: {
+    backgroundColor: "#e57a44",
+    borderRadius: 12,
+    alignItems: "center",
+    paddingVertical: 14,
+  },
+
+  botaoTexto: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "700",
   },
 });

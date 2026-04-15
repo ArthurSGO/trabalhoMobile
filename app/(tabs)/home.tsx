@@ -15,7 +15,7 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.titulo}>Easy Ticket</Text>
-        <TextInput placeholder="Buscar evento" placeholderTextColor="#9aa1b5" style={styles.input} />
+        <TextInput placeholder="Buscar evento" placeholderTextColor="#8aa39d" style={styles.input} />
       </View>
 
       <FlatList
@@ -41,7 +41,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eef1ff",
+    backgroundColor: "#f3f7f6",
   },
 
   header: {
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 28,
     fontWeight: "700",
-    color: "#1f2b5c",
+    color: "#1f2a37",
     marginBottom: 12,
   },
 
@@ -62,7 +62,9 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     height: 44,
     paddingHorizontal: 14,
-    color: "#1f2b5c",
+    color: "#1f2a37",
+    borderWidth: 1,
+    borderColor: "#d7e2df",
   },
 
   lista: {
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
   imagem: {
     width: "100%",
     height: 150,
-    backgroundColor: "#d8dcf2",
+    backgroundColor: "#d7e2df",
   },
 
   cardConteudo: {
@@ -90,20 +92,20 @@ const styles = StyleSheet.create({
   nome: {
     fontSize: 18,
     fontWeight: "700",
-    color: "#1f2b5c",
+    color: "#1f2a37",
     marginBottom: 6,
   },
 
   info: {
     fontSize: 14,
-    color: "#545d7a",
+    color: "#5c6b73",
     marginBottom: 2,
   },
 
   preco: {
     fontSize: 16,
     fontWeight: "700",
-    color: "#3f51b5",
+    color: "#2e7d6e",
     marginTop: 8,
   },
 });
